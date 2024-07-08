@@ -2,13 +2,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./features/counterSlice";
 import moviesReducer from "./features/moviesSlice";
-import modalSlice from "./features/modalSlice";
+import favoritesReducer from "./features/favoritesSlice";
+import modalReducer from "./features/modalSlice";
+import alertReducer from "./features/alertSlice";
 
 const store = configureStore({
   reducer: {
-    modal: modalSlice,
+    modal: modalReducer,
     counter: counterReducer,
     movies: moviesReducer,
+    favorites: favoritesReducer,
+    alert: alertReducer,
   },
 });
 

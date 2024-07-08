@@ -43,6 +43,7 @@ const moviesSlice = createSlice({
     query: "",
     selectedMovieId: null,
     selectedMovieDetail: null,
+    showAlert: false,
   },
   reducers: {
     setQuery: (state, action) => {
@@ -77,6 +78,9 @@ const moviesSlice = createSlice({
       .addCase(fetchMovieDetail.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+        state.showAlert = true;
+        state.alertMessage = "Failed to fetch movies!";
+        state.alertType = "error";
       });
   },
 });
